@@ -1,0 +1,308 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #272525;;
+}
+
+.ano{
+color: #fff;
+}
+
+.inicio{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+  color: rgb(87,87,87);
+}
+
+.container{
+  flex-direction: column;
+}
+
+.container span{
+  animation: cinema 3s ease-in-out infinite;
+}
+
+.container span:nth-of-type(2){
+  animation-delay: 0.25s;
+}
+
+.container span:nth-of-type(3){
+  animation-delay: 0.50s;
+}
+
+.container span:nth-of-type(4){
+  animation-delay: 0.75s;
+}
+
+.container span:nth-of-type(5){
+  animation-delay: 1s;
+}
+
+.container span:nth-of-type(6){
+  animation-delay: 1.25s;
+}
+
+.container span:nth-of-type(7){
+  animation-delay: 1.50s;
+}
+
+@keyframes cinema{
+  0%{
+    color: #fff;
+    text-shadow: 0 0 12px #c80404, 
+      0 0 50px #c80404,
+      0 0 100px #c80404;
+  }
+  10%, 90%{
+    color: rgb(87,87,87);
+    text-shadow: none;
+  }
+}
+
+
+.linha{
+display: inline-block;
+}
+
+.card{
+  margin-left: 10px;
+  position: relative;
+  width: 200px;
+  height: 270px;
+  margin: 10px;
+}
+
+.card .face{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: .5s;
+}
+
+.card .front{
+  transform: perspective(600px) rotateY(0deg);
+  box-shadow: 0 5px 10px black;
+}
+
+/*para que a imagem se adeque toda no espaço do card*/
+.card .front img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .front h3{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  color: aliceblue;
+  background: rgb(0,0,0,.4);
+  text-align: center;
+}
+
+.card .back{
+  transform: perspective(600px) rotateY(180deg);
+  background: rgb(179, 9, 12);
+  padding: 15px;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.card .back .link{
+  border-top: solid 1px #f3f3f3;
+  height: 50px;
+  line-height: 30px;
+}
+
+.card .back .link a{
+  color: #f3f3f3;
+}
+
+.card .back h3{
+  font-size: 20px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+
+.card .back p{
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.card:hover .front{
+  transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover .back{
+  transform: perspective(600px) rotateY(360deg);
+}
+
+
+
+/*FILMESSSSS*/
+
+@media only screen and (max-width:1024px){
+body{
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  background: #272525;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.tit{
+  font-size: 40px;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+p, small{
+  color: #c4c0c0;
+}
+
+p{
+  font-size: 12px;
+  line-height: 22px;
+}
+
+h2{
+  padding: 100px;
+  margin: 0;
+  font-size: 30px;
+}
+
+.skewed{
+  width: 100%;
+  color: #f1f1f1;
+  display: flex;
+  background: #111;
+  margin: 2em 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+
+.text{
+  padding: 1.5em;
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+
+.image{
+  width: 60%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.image::before{
+  content: '';
+  position: absolute;
+  left: -3.1em;  
+  top: 50%;
+  transform: translateY(-50%) rotate(20deg);
+  background: #111;
+  width: 45%;
+  height: 140%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.skewed-left .image::before{
+  transform: translateY(-50%) rotate(-20deg);
+  left: initial;
+  right: -3.1em;
+}
+
+img{
+  width: 140%;
+}
+}
+
+
+
+/*BOTÃO*/
+
+.neon-btn {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 14px;
+  color: #c80404;
+  border: 8px solid #c80404;
+  padding: 16px 64px;
+  border-radius: 16px;
+
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 0 0 29px #c80404;
+
+  position: relative;
+}
+
+.neon-btn::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #c80404;
+  left: 0;
+  top: 120%;
+  transform: perspective(64px) rotateX(40deg) scale(1, 0.35);
+  filter: blur(64px);
+  opacity: 0.7;
+}
+
+.neon-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #c80404;
+  box-shadow: 0 0 128px 32px #c80404;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 100ms linear;
+}
+
+.neon-btn:hover::after,
+.neon-btn:focus::after {
+  opacity: 1;
+}
+
+.neon-btn:hover::before,
+.neon-btn:focus::before {
+  opacity: 1;
+}
+
+.neon-btn:hover,
+.neon-btn:focus {
+  color: #202631;
+  text-shadow: none;
+}
